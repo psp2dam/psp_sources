@@ -11,6 +11,11 @@ module.exports = {
   description: description,
 
   /**
+   * Directory to be deployed to http://mydeploymenthost/base/
+   */  
+  base: '/psp_sources/',
+
+  /**
    * Extra tags to be injected to the page HTML `<head>`
    *
    * ref：https://v1.vuepress.vuejs.org/config/#head
