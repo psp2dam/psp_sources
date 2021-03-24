@@ -1,0 +1,19 @@
+{
+  "name": "vuuepres_markdown",
+  "version": "0.0.1",
+  "description": "VuePress & Markdown sample",
+  "main": "index.js",
+  "authors": {
+    "name": "Vicente Martínez",
+    "email": ""
+  },
+  "repository": "https://github.com/psp2dam/psp_sources.git",
+  "scripts": {
+    "docs:dev": "vuepress dev src",
+    "docs:build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
