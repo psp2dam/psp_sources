@@ -89,6 +89,7 @@ module.exports = {
     '@vuepress/plugin-back-to-top': {
 
     },
+/*    
     '@vuepress/plugin-medium-zoom': {
       selector: 'img',
       // medium-zoom options here
@@ -102,5 +103,6 @@ module.exports = {
     '@vuepress/plugin-last-updated': {
 
     }
+    */
   }
 }
