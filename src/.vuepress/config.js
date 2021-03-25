@@ -4,28 +4,29 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'IES Doctor Balmis - PSP (2ºDAM)',
+  title: 'PSP (2º DAM)',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
-  description: 'Apuntes del módulo PSP de 2º curso del CFGS DAM',
+  description: 'Apuntes, PSP, DAM, FP, Programacion',
 
   /**
    * Directory to be deployed to http://mydeploymenthost/base/
    */  
-  base: '/psp_sources/',
+  base: '/psp-sources/',
 
   /**
    * Extra tags to be injected to the page HTML `<head>`
    *
    * ref：https://v1.vuepress.vuejs.org/config/#head
-   * Defaul theme-color: 3eaf7c
+   * Original theme-color: 3eaf7c
    */
   head: [
     ['meta', { name: 'theme-color', content: '#3e7caf' }],
+    // original color ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
-    ['link', { rel: 'icon', href: '/psp-32x32.png' }]
+    //['link', { rel: 'icon', href: '/psp-32x32.png' }]
   ],
 
   /**
@@ -34,18 +35,23 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
+    
     // Smooth scrolling
     smoothScroll: true,
     // Github configuration
+    // - Link to github repo in nav bar
     repo: 'psp2dam/psp_sources',
     repoLabel: 'PSP Notes',
+    // - Link to page in github, at the bottom of each page
     docsDir: 'src',
     docsBranch: 'master',
     editLinks: true,
     editLinkText: 'Help us improve this page!',
+    // Last updated info, at the bottom of each page
     lastUpdated: 'Last updated',
-    // Navigation bar configuration
-    logo: '/Logo_IES_Transparente_Blanco_v1-3',
+    // Navigation bar configuration, at top left on the nav bar (next to the title)
+    logo: '/Logo_IES_Transparente_Blanco_v1-3.png',
+    
     nav: [
       {
         text: 'Guide',
@@ -78,17 +84,23 @@ module.exports = {
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
-  plugins: [
-    '@vuepress/plugin-back-to-top',
+  plugins: {
+    
+    '@vuepress/plugin-back-to-top': {
+
+    },
     '@vuepress/plugin-medium-zoom': {
       selector: 'img',
       // medium-zoom options here
       // See: https://github.com/francoischalifour/medium-zoom#options
       options: {
         margin: 48,
-        background: '#21253080',
-        scrollOffset: 40,
+        background: '#212530CC',
+        // scrollOffset: 40,
       }
     },
-  ]
+    '@vuepress/plugin-last-updated': {
+
+    }
+  }
 }

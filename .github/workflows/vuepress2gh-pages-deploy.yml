@@ -32,5 +32,5 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         TARGET_REPO: psp2dam/psp_sources
         TARGET_BRANCH: gh-pages
-        BUILD_SCRIPT: npm install -D vuepress && npm install -D @vuepress/plugin-medium-zoom && npm run docs:build
+        BUILD_SCRIPT: npm install -D vuepress && npm install -D @vuepress/plugin-medium-zoom && && npm install -D @vuepress/plugin-back-to-top && && npm install -D @vuepress/plugin-last-updated && npm run docs:build
         BUILD_DIR: src/.vuepress/dist/
