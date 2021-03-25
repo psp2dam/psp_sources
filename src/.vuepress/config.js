@@ -13,7 +13,9 @@ module.exports = {
   /**
    * Directory to be deployed to http://mydeploymenthost/base/
    */  
-  base: '/psp_sources/',
+  base: '/psp_sources/', // Producción
+  //base: '/', // Desarrollo
+
 
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -88,8 +90,7 @@ module.exports = {
     
     '@vuepress/plugin-back-to-top': {
 
-    },
-/*    
+    },  
     '@vuepress/plugin-medium-zoom': {
       selector: 'img',
       // medium-zoom options here
@@ -103,6 +104,5 @@ module.exports = {
     '@vuepress/plugin-last-updated': {
 
     }
-    */
   }
 }
