@@ -2,8 +2,8 @@
 home: true
 heroImage: /Logo_PSP.png
 tagline: VuePress & Markdown
-actionText: Access course →
-actionLink: /unit1/
+actionText: Acceder al curso →
+actionLink: /es/
 features:
 - title: Feature 1 Título
   details: Feature 1 Description
@@ -11,5 +11,5 @@ features:
   details: Feature 2 Description
 - title: Feature 3 Title
   details: Feature 3 Description
-footer: Made by Vicente Martínez with ❤️
+footer: Creado por Vicente Martínez con ❤️
 ---
