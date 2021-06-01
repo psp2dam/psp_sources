@@ -6,3 +6,43 @@
 
 .home .hero img
   max-width 450px!important
+
+@media only screen {
+  .documentcover {
+    display: none !important;    
+  }
+}
+
+@media print {
+  //-webkit-print-color-adjust: exact;
+
+  // your code here
+  .downloadLink
+  {
+    display: none !important;
+  }
+  .pagebreak
+  {
+    page-break-after: always;
+  }
+  .theme-code-block
+  {
+    display: block !important;
+  }
+  .documentcover
+  {
+    padding-top: 6cm;
+  }
+
+  @page
+  {
+    margin-top: 1.5cm;    
+    margin-bottom: 3cm;
+  }
+
+  @page :first 
+  {
+    margin-top: 0;     
+  }
+  
+}

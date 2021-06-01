@@ -1,15 +1,19 @@
 ---
 home: true
-heroImage: /Logo_PSP.png
-tagline: VuePress & Markdown
-actionText: Access course →
+heroImage: /LogoPSP_en.png
+tagline: Class notes
+actionText: Access lessons →
 actionLink: /unit1/
 features:
-- title: Feature 1 Título
-  details: Feature 1 Description
-- title: Feature 2 Title
-  details: Feature 2 Description
-- title: Feature 3 Title
-  details: Feature 3 Description
-footer: Made by Vicente Martínez with ❤️
+- title: 
+  details: 
+- title: 
+  details: 
+- title: 
+  details: 
+footer: © 2020/2021
 ---
+
+<div class="cclicense" align="center">
+  <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">Except where otherwise noted, content on this site (<a property="dct:title" rel="cc:attributionURL" href="https://psp2dam.github.io/psp_sources">PSP class notes</a>) by <span property="cc:attributionName">Vicente Martínez</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p>
+</div>    

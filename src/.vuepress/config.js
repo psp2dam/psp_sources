@@ -13,9 +13,11 @@ module.exports = {
   /**
    * Directory to be deployed to http://mydeploymenthost/base/
    */  
-  base: '/psp_sources/', // Producción
-  // base: '/', // Desarrollo
+  //base: '/psp_sources/', // Producción
+  base: '/', // Desarrollo
 
+  // Host name for PDF export configuration
+  host: 'localhost',
 
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -28,7 +30,7 @@ module.exports = {
     // original color ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ['link', { rel: 'icon', href: '/favico_psp.png' }]
+    ['link', { rel: 'icon', href: '/psp_favicon.png' }]
   ],
 
   /**
@@ -40,7 +42,7 @@ module.exports = {
     // As a special case, the default locale can use '/' as its path.
     '/': {
       lang: 'en-US', // this will be set as the lang attribute on <html>
-      title: 'Processes and Services Programming',
+      title: 'Process and Service Programming',
       description: '2nd DAM PSP Module'
     },
     '/es/': {
@@ -50,6 +52,8 @@ module.exports = {
     }
   },
 
+  theme: 'default-prefers-color-scheme',
+  
   /**
    * Markdown format setting
    */  
@@ -73,6 +77,11 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
+
+    // extended-theme-configurations
+    overrideTheme: 'light',
+    prefersTheme: 'light',
+
     // Sidebar behaviour
     sidebarDepth: 2,
     displayAllHeaders: true,
@@ -106,7 +115,7 @@ module.exports = {
         ],
         sidebar: {
           '/unit1/': [ { title: 'PSP - Unit 1: Concurrent programming', collapsable: true, 
-            children: ['', 'part1', 'part2']
+            children: ['', 'part1', 'part2', 'part1_']
           } ],
           '/unit2/': [ { title: 'PSP - Unit 2: Processes programming', collapsable: true, 
             children: ['', 'part1', 'part2']
@@ -143,7 +152,7 @@ module.exports = {
         ],
         sidebar: {
           '/es/unit1/': [ { title: 'PSP - Tema 1: Introducción a la programación concurrente', collapsable: true, 
-            children: ['', 'part1', 'part2']
+            children: ['', 'part1', 'part2', 'part1_']
           } ],
           '/es/unit2/': [ { title: 'PSP - Tema 2: Programación de procesos', collapsable: true, 
             children: ['', 'part1', 'part2']
@@ -168,36 +177,7 @@ module.exports = {
     // Last updated info, at the bottom of each page
     lastUpdated: 'Last updated',
     // Navigation bar configuration, at top left on the nav bar (next to the title)
-    logo: '/Logo_IES_Transparente_Blanco_v1-3.png',
-/*    
-    nav: [
-      {
-        text: 'Guide',
-        link: '/guide/',
-      },
-      {
-        text: 'Config',
-        link: '/config/'
-      },
-      {
-        text: 'AULES',
-        link: 'https://aules.edu.gva.es/fp'
-      }
-    ],
-    // Sidebar configuration
-    sidebar: {
-      '/guide/': [
-        {
-          title: 'Guide',
-          collapsable: false,
-          children: [
-            '',
-            'using-vue',
-          ]
-        }
-      ],
-    }
-*/    
+    logo: '/LogoIES.png',
   },
 
   /**
@@ -205,11 +185,41 @@ module.exports = {
    */
   plugins: {
     
+    '@snowdog/vuepress-plugin-pdf-export': {
+      puppeteerLaunchOptions: {
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+      },
+      sorter: 'pathOrdered',
+      theme: 'default',  
+      pageOptions: {
+        format: 'A4',
+        displayHeaderFooter: true,
+        headerTemplate: `
+        <style>
+          .header, .footer{ font-family: "Segoe UI", Roboto, Oxygen, Arial, freesans, sans-serif; padding: 0mm 1mm; margin: 0 1cm ; width: 100%; text-align: right ;}
+          .header { font-size: 10px; }
+          .footer {font-size: 9px;}
+          .border-bottom { border-bottom: 1pt solid #3eaf7c;}
+          .border-top { border-top: 1pt solid #3eaf7c; border-right: 1pt solid #3eaf7c;}
+        </style>
+        <div class="border-bottom header"><span style="float:left;">CFGS DAM</span><span class="title"></span></div>
+      `,
+      footerTemplate: `
+        <div class="border-top footer">
+          <span style="float:left; text-align:left;">IES Doctor Balmis</span>
+          <b><span class="pageNumber"></span> / <span class="totalPages"></span></b>
+        </div>
+      `,
+        printBackground: true,
+        scale: 0.9,
+        margin: {top: '1.5cm', bottom: '1.5cm', left: '1cm', right: '1cm', },
+      },
+    },
     '@vuepress/plugin-back-to-top': {
 
     },  
     '@vuepress/plugin-medium-zoom': {
-      selector: 'p img',
+      selector: 'p img, table img, figure img',
       // medium-zoom options here
       // See: https://github.com/francoischalifour/medium-zoom#options
       options: {
@@ -222,6 +232,18 @@ module.exports = {
       dateOptions:{
         hour12: false
       }
+    },
+    '@xiaopanda/vuepress-plugin-code-copy': {
+      buttonStaticIcon: false,
+      buttonIconTitle: 'Copy',
+      buttonAlign: 'bottom',
+      buttonColor: '#3eaf7c'
+    },
+    'vuepress-plugin-mermaidjs': {
+
+    },
+    'vuepress-plugin-graphviz': {
+
     }
   }
 }

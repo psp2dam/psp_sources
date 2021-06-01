@@ -5,18 +5,27 @@
   "main": "index.js",
   "authors": {
     "name": "Vicente Martínez",
-    "email": ""
+    "email": "vicente@iesdoctorbalmis.com"
   },
   "repository": "https://github.com/psp2dam/psp_sources.git",
   "scripts": {
     "docs:dev": "vuepress dev src",
-    "docs:build": "vuepress build src"
+    "docs:build": "vuepress build src",
+    "docs:export": "vuepress export src"
   },
   "license": "MIT",
   "devDependencies": {
+    "@aduh95/viz.js": "^3.1.0",
+    "@snowdog/vuepress-plugin-pdf-export": "^1.1.0",
     "@vuepress/plugin-back-to-top": "^1.8.2",
     "@vuepress/plugin-last-updated": "^1.8.2",
     "@vuepress/plugin-medium-zoom": "^1.8.2",
-    "vuepress": "^1.5.3"
+    "@vuepress/plugin-prismjs": "^2.0.0-beta.4",
+    "@xiaopanda/vuepress-plugin-code-copy": "^1.0.3",
+    "vuepress": "^1.5.3",
+    "vuepress-plugin-graphviz": "^1.0.1",
+    "vuepress-plugin-mermaidjs": "^1.8.1",
+    "vuepress-theme-craftdocs": "^2.0.9",
+    "vuepress-theme-default-prefers-color-scheme": "^2.0.0"
   }
 }
