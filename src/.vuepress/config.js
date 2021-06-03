@@ -13,8 +13,8 @@ module.exports = {
   /**
    * Directory to be deployed to http://mydeploymenthost/base/
    */  
-  //base: '/psp_sources/', // Producción
-  base: '/', // Desarrollo
+  base: '/psp_sources/', // Producción
+  //base: '/', // Desarrollo
 
   // Host name for PDF export configuration
   host: 'localhost',

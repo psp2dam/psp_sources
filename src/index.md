@@ -11,7 +11,7 @@ features:
   details: 
 - title: 
   details: 
-footer: © 2020/2021
+footer: © 2021/2022
 ---
 
 <div class="cclicense" align="center">
