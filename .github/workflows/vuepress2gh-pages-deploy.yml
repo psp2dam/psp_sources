@@ -32,5 +32,5 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         TARGET_REPO: psp2dam/psp_sources
         TARGET_BRANCH: gh-pages
-        BUILD_SCRIPT: npm install -D vuepress && npm install -D @aduh95/viz.js && npm install -D @vuepress/plugin-back-to-top &&  npm install -D @vuepress/plugin-last-updated && npm install -D @vuepress/plugin-medium-zoom && npm install -D @xiaopanda/vuepress-plugin-code-copy && npm install -D vuepress-plugin-graphviz && npm install -D vuepress-plugin-mermaidjs &&  npm install -D vuepress-theme-default-prefers-color-scheme && npm run docs:build
+        BUILD_SCRIPT: npm install -D vuepress && npm install -D @aduh95/viz.js@3.1.0 && npm install -D @vuepress/plugin-back-to-top &&  npm install -D @vuepress/plugin-last-updated && npm install -D @vuepress/plugin-medium-zoom && npm install -D @xiaopanda/vuepress-plugin-code-copy && npm install -D vuepress-plugin-graphviz && npm install -D vuepress-plugin-mermaidjs &&  npm install -D vuepress-theme-default-prefers-color-scheme && npm run docs:build
         BUILD_DIR: src/.vuepress/dist/
