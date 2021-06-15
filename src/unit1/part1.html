@@ -1,0 +1,344 @@
+<!DOCTYPE html><html><head>
+      <title>part1</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * VS theme by Andrew Lock (https://andrewlock.net)
+ * Inspired by Visual Studio syntax coloring
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: #393A34;
+    font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    font-size: 0.95em;
+    line-height: 1.2em;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    background: #C1DEF1;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    background: #C1DEF1;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+    border: 1px solid #dddddd;
+    background-color: white;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .2em;
+    padding-top: 1px; padding-bottom: 1px;
+    background: #f8f8f8;
+    border: 1px solid #dddddd;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #008000; font-style: italic;
+}
+
+.token.namespace {
+    opacity: .7;
+}
+
+.token.string {
+    color: #A31515;
+}
+
+.token.punctuation,
+.token.operator {
+    color: #393A34; /* no highlight */
+}
+
+.token.url,
+.token.symbol,
+.token.number,
+.token.boolean,
+.token.variable,
+.token.constant,
+.token.inserted {
+    color: #36acaa;
+}
+
+.token.atrule,
+.token.keyword,
+.token.attr-value,
+.language-autohotkey .token.selector,
+.language-json .token.boolean, 
+.language-json .token.number, 
+code[class*="language-css"]{
+    color: #0000ff;
+}
+
+.token.function {
+    color: #393A34;
+}
+.token.deleted,
+.language-autohotkey .token.tag {
+    color: #9a050f;
+}
+
+.token.selector,
+.language-autohotkey .token.keyword {
+    color: #00009f;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.class-name,
+.language-json .token.property {
+    color: #2B91AF;
+}
+
+.token.tag,
+.token.selector {
+    color: #800000;
+}
+
+.token.attr-name,
+.token.property,
+.token.regex,
+.token.entity {
+    color: #ff0000;
+}
+
+.token.directive.tag  .tag {
+    background: #ffff00;
+    color: #393A34;
+}
+
+/* overrides color-values for the Line Numbers plugin
+ * http://prismjs.com/plugins/line-numbers/
+ */
+.line-numbers .line-numbers-rows {
+  border-right-color: #a5a5a5;
+}
+
+.line-numbers-rows > span:before {
+  color: #2B91AF;
+}
+
+/* overrides color-values for the Line Highlight plugin
+* http://prismjs.com/plugins/line-highlight/
+*/
+.line-highlight {
+  background: rgba(193, 222, 241, 0.2);
+  background: -webkit-linear-gradient(left, rgba(193, 222, 241, 0.2) 70%, rgba(221, 222, 241, 0));
+  background: linear-gradient(to right, rgba(193, 222, 241, 0.2) 70%, rgba(221, 222, 241, 0));
+}
+
+/* highlight */
+pre[data-line] {
+    position: relative;
+    padding: 1em 0 1em 3em;
+  }
+  pre[data-line] .line-highlight-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    display: block;
+    width: 100%;
+  }
+  
+  pre[data-line] .line-highlight {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: inherit 0;
+    margin-top: 1em;
+    background: hsla(24, 20%, 50%,.08);
+    background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+    pointer-events: none;
+    line-height: inherit;
+    white-space: pre;
+  }
+  
+  pre[data-line] .line-highlight:before, 
+  pre[data-line] .line-highlight[data-end]:after {
+    content: attr(data-start);
+    position: absolute;
+    top: .4em;
+    left: .6em;
+    min-width: 1em;
+    padding: 0 .5em;
+    background-color: hsla(24, 20%, 50%,.4);
+    color: hsl(24, 20%, 95%);
+    font: bold 65%/1.5 sans-serif;
+    text-align: center;
+    vertical-align: .3em;
+    border-radius: 999px;
+    text-shadow: none;
+    box-shadow: 0 1px white;
+  }
+  
+  pre[data-line] .line-highlight[data-end]:after {
+    content: attr(data-end);
+    top: auto;
+    bottom: .4em;
+  }@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;src:local('Roboto Mono'),local('RobotoMono-Regular'),url(https://fonts.gstatic.com/s/robotomono/v7/L0x5DF4xlVMF-BfR8bXMIjhLq3o.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:300;src:local('Source Sans Pro Light'),local('SourceSansPro-Light'),url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;src:local('Source Sans Pro Regular'),local('SourceSansPro-Regular'),url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7g.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:600;src:local('Source Sans Pro SemiBold'),local('SourceSansPro-SemiBold'),url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdr.ttf) format('truetype')}*{-webkit-font-smoothing:antialiased;-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-text-size-adjust:none;-webkit-touch-callout:none;box-sizing:border-box}body:not(.ready){overflow:hidden}body:not(.ready) .app-nav,body:not(.ready)>nav,body:not(.ready) [data-cloak]{display:none}div#app{font-size:30px;font-weight:lighter;margin:40vh auto;text-align:center}div#app:empty:before{content:"Loading..."}.emoji{height:19.2px;height:1.2rem;vertical-align:middle}.progress{background-color:#42b983;background-color:var(--theme-color, #42b983);height:2px;left:0;position:fixed;right:0;top:0;transition:width .2s,opacity .4s;width:0;z-index:5}.search .search-keyword,.search a:hover{color:#42b983;color:var(--theme-color, #42b983)}.search .search-keyword{font-style:normal;font-weight:700}body,html{height:100%}body{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;color:#34495e;font-family:Source Sans Pro,Helvetica Neue,Arial,sans-serif;font-size:15px;letter-spacing:0;margin:0;overflow-x:hidden}img{max-width:100%}a[disabled]{cursor:not-allowed;opacity:.6}kbd{color:#34495e;border:1px solid #ccc;border-radius:3px;display:inline-block;font-size:12px !important;line-height:12px;margin-bottom:3px;padding:3px 5px;vertical-align:middle}.task-list-item{list-style-type:none}li input[type=checkbox]{margin:0 .2em .25em -1.6em;vertical-align:middle}.app-nav{left:0;margin:25px 60px 0 0;position:absolute;right:0;text-align:right;z-index:2}.app-nav p{margin:0}.app-nav>a{margin:0 16px;margin:0 1rem;padding:5px 0}.app-nav li,.app-nav ul{display:inline-block;list-style:none;margin:0}.app-nav a{color:inherit;font-size:16px;text-decoration:none;transition:color .3s}.app-nav a.active,.app-nav a:hover{color:#42b983;color:var(--theme-color, #42b983)}.app-nav a.active{border-bottom:2px solid #42b983;border-bottom:2px solid var(--theme-color, #42b983)}.app-nav li{display:inline-block;margin:0 16px;margin:0 1rem;padding:5px 0;position:relative}.app-nav li ul{background-color:#fff;border:1px solid #ddd;border-bottom-color:#ccc;border-radius:4px;box-sizing:border-box;display:none;max-height:calc(100vh - 61px);overflow-y:scroll;padding:10px 0;position:absolute;right:-15px;text-align:left;top:100%;white-space:nowrap}.app-nav li ul li{display:block;font-size:14px;line-height:16px;line-height:1rem;margin:0;margin:8px 14px;white-space:nowrap}.app-nav li ul a{display:block;font-size:inherit;margin:0;padding:0}.app-nav li ul a.active{border-bottom:0}.app-nav li:hover ul{display:block}.app-nav.no-badge{margin-right:25px}.github-corner{border-bottom:0;position:fixed;right:0;text-decoration:none;top:0;z-index:1}.github-corner svg{color:#fff;fill:#42b983;fill:var(--theme-color, #42b983);height:80px;width:80px}.github-corner:hover .octo-arm{-webkit-animation:a .56s ease-in-out;animation:a .56s ease-in-out}main{display:block;position:relative;width:100vw;height:100%;z-index:0}.anchor{display:inline-block;text-decoration:none;transition:all .3s}.anchor span{color:#34495e}.anchor:hover{text-decoration:underline}.sidebar{border-right:1px solid rgba(0,0,0,0.07);overflow-y:auto;padding:40px 0 0;top:0;bottom:0;left:0;position:absolute;transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out;width:300px;z-index:3}.sidebar>h1{margin:0 auto 16px;margin:0 auto 1rem;font-size:24px;font-size:1.5rem;font-weight:300;text-align:center}.sidebar>h1 a{color:inherit;text-decoration:none}.sidebar>h1 .app-nav{display:block;position:static}.sidebar .sidebar-nav{line-height:2em;padding-bottom:40px}.sidebar ul{margin:0;padding:0}.sidebar li>p{font-weight:700;margin:0}.sidebar ul,.sidebar ul li{list-style:none}.sidebar ul li a{border-bottom:none;display:block}.sidebar ul li ul{padding-left:20px}.sidebar::-webkit-scrollbar{width:4px}.sidebar::-webkit-scrollbar-thumb{background:transparent;border-radius:4px}.sidebar:hover::-webkit-scrollbar-thumb{background:hsla(0,0%,53%,0.4)}.sidebar:hover::-webkit-scrollbar-track{background:hsla(0,0%,53%,0.1)}.sidebar-toggle{background-color:transparent;background-color:hsla(0,0%,100%,0.8);border:0;outline:none;padding:10px;bottom:0;left:0;position:absolute;text-align:center;transition:opacity .3s;width:30px;width:284px;z-index:4}.sidebar-toggle .sidebar-toggle-button:hover{opacity:.4}.sidebar-toggle span{background-color:#42b983;background-color:var(--theme-color, #42b983);display:block;margin-bottom:4px;width:16px;height:2px}body.sticky .sidebar,body.sticky .sidebar-toggle{position:fixed}.content{padding-top:60px;top:0;right:0;bottom:0;left:300px;position:absolute;transition:left .25s ease}.markdown-preview>*{box-sizing:border-box;font-size:inherit}.markdown-preview>:first-child{margin-top:0 !important}.markdown-preview hr{border:none;border-bottom:1px solid #eee;margin:2em 0}.markdown-preview table{border-collapse:collapse;border-spacing:0;display:block;margin-bottom:16px;margin-bottom:1rem;overflow:auto;width:100%}.markdown-preview th{font-weight:700}.markdown-preview td,.markdown-preview th{border:1px solid #ddd;padding:6px 13px}.markdown-preview tr{border-top:1px solid #ccc}.markdown-preview p.tip,.markdown-preview tr:nth-child(2n){background-color:#f8f8f8}.markdown-preview p.tip{border-bottom-right-radius:2px;border-left:4px solid #f66;border-top-right-radius:2px;margin:2em 0;padding:12px 24px 12px 30px;position:relative}.markdown-preview p.tip code{background-color:#efefef}.markdown-preview p.tip em{color:#34495e}.markdown-preview p.tip:before{background-color:#f66;border-radius:100%;color:#fff;content:"!";font-family:Dosis,Source Sans Pro,Helvetica Neue,Arial,sans-serif;font-size:14px;font-weight:700;left:-12px;line-height:20px;position:absolute;width:20px;height:20px;text-align:center;top:14px}.markdown-preview p.warn{background:rgba(66,185,131,0.1);border-radius:2px;padding:16px;padding:1rem}body.close .sidebar{-webkit-transform:translateX(-300px);transform:translateX(-300px)}body.close .sidebar-toggle{width:auto}body.close .content{left:0}@media print{.app-nav,.github-corner,.sidebar,.sidebar-toggle{display:none}}@media screen and (max-width:768px){.github-corner,.sidebar,.sidebar-toggle{position:fixed}.app-nav{margin-top:16px}.app-nav li ul{top:30px}main{height:auto;overflow-x:hidden}.sidebar{left:-300px;transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out}.content{left:0;max-width:100vw;position:static;padding-top:20px;transition:-webkit-transform .25s ease;transition:transform .25s ease;transition:transform .25s ease,-webkit-transform .25s ease}.app-nav,.github-corner{transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out}.sidebar-toggle{background-color:transparent;width:auto;padding:30px 30px 10px 10px}body.close .sidebar{-webkit-transform:translateX(300px);transform:translateX(300px)}body.close .sidebar-toggle{background-color:hsla(0,0%,100%,0.8);transition:background-color 1s;width:284px;padding:10px}body.close .content{-webkit-transform:translateX(300px);transform:translateX(300px)}body.close .app-nav,body.close .github-corner{display:none}.github-corner .octo-arm{-webkit-animation:a .56s ease-in-out;animation:a .56s ease-in-out}.github-corner:hover .octo-arm{-webkit-animation:none;animation:none}}@-webkit-keyframes a{0%,to{-webkit-transform:rotate(0);transform:rotate(0)}20%,60%{-webkit-transform:rotate(-25deg);transform:rotate(-25deg)}40%,80%{-webkit-transform:rotate(10deg);transform:rotate(10deg)}}@keyframes a{0%,to{-webkit-transform:rotate(0);transform:rotate(0)}20%,60%{-webkit-transform:rotate(-25deg);transform:rotate(-25deg)}40%,80%{-webkit-transform:rotate(10deg);transform:rotate(10deg)}}section.cover{-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-position:50%;background-repeat:no-repeat;background-size:cover;height:100vh;display:none}section.cover .cover-main{-webkit-box-flex:1;-ms-flex:1;flex:1;margin:-20px 16px 0;text-align:center;z-index:1}section.cover a{color:inherit}section.cover a,section.cover a:hover{text-decoration:none}section.cover p{line-height:24px;line-height:1.5rem;margin:1em 0}section.cover h1{color:inherit;font-size:40px;font-size:2.5rem;font-weight:300;margin:10px 0 40px;margin:.625rem 0 2.5rem;position:relative;text-align:center}section.cover h1 a{display:block}section.cover h1 small{bottom:-7px;bottom:-0.4375rem;font-size:16px;font-size:1rem;position:absolute}section.cover blockquote{font-size:24px;font-size:1.5rem;text-align:center}section.cover ul{line-height:1.8;list-style-type:none;margin:1em auto;max-width:500px;padding:0}section.cover .cover-main>p:last-child a{border-color:#42b983;border:1px solid var(--theme-color, #42b983);border-radius:2rem;box-sizing:border-box;color:#42b983;color:var(--theme-color, #42b983);display:inline-block;font-size:16.8px;font-size:1.05rem;letter-spacing:1.6px;letter-spacing:.1rem;margin-right:16px;margin-right:1rem;padding:.75em 32px;padding:.75em 2rem;text-decoration:none;transition:all .15s ease}section.cover .cover-main>p:last-child a:last-child{background-color:#42b983;background-color:var(--theme-color, #42b983);color:#fff;margin-right:0}section.cover .cover-main>p:last-child a:last-child:hover{color:inherit;opacity:.8}section.cover .cover-main>p:last-child a:hover{color:inherit}section.cover blockquote>p>a{border-bottom:2px solid #42b983;border-bottom:2px solid var(--theme-color, #42b983);transition:color .3s}section.cover blockquote>p>a:hover{color:#42b983;color:var(--theme-color, #42b983)}section.cover.show{display:-webkit-box;display:-ms-flexbox;display:flex}section.cover.has-mask .mask{background-color:#fff;opacity:.8;position:absolute;width:100%;height:100%}.sidebar,body{background-color:#fff}.sidebar{color:#364149}.sidebar li{margin:6px 0 6px 15px}.sidebar ul li a{color:#505d6b;font-size:14px;font-weight:400;overflow:hidden;text-decoration:none;text-overflow:ellipsis;white-space:nowrap}.sidebar ul li a:hover{text-decoration:underline}.sidebar ul li ul{padding:0}.sidebar ul li.active>a{border-right:2px solid;color:#42b983;color:var(--theme-color, #42b983);font-weight:600}.app-sub-sidebar li:before{content:"-";padding-right:4px;float:left}.markdown-preview h1,.markdown-preview h2,.markdown-preview h3,.markdown-preview h4,.markdown-preview strong{color:#2c3e50;font-weight:600}.markdown-preview a{color:#42b983;color:var(--theme-color, #42b983);font-weight:600}.md-sidebar-toc a{color:#42b983;font-weight:600}.markdown-preview h1{font-size:32px;font-size:2rem;margin:0 0 16px;margin:0 0 1rem}.markdown-preview h2{font-size:28px;font-size:1.75rem;margin:45px 0 12.8px;margin:45px 0 .8rem}.markdown-preview h3{font-size:24px;font-size:1.5rem;margin:40px 0 9.6px;margin:40px 0 .6rem}.markdown-preview h4{font-size:20px;font-size:1.25rem}.markdown-preview h5,.markdown-preview h6{font-size:16px;font-size:1rem}.markdown-preview h6{color:#777}.markdown-preview figure,.markdown-preview p{margin:1.2em 0}.markdown-preview ol,.markdown-preview p,.markdown-preview ul{line-height:25.6px;line-height:1.6rem;word-spacing:.8px;word-spacing:.05rem}.markdown-preview ol,.markdown-preview ul{padding-left:24px;padding-left:1.5rem}.markdown-preview blockquote{border-left:4px solid #42b983;border-left:4px solid var(--theme-color, #42b983);color:#858585;background-color:#f0f0f0;margin:2em 0;padding-left:20px}.markdown-preview blockquote p{font-weight:600;margin-left:0}.markdown-preview iframe{margin:1em 0}.markdown-preview em{color:#7f8c8d}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+@media print {
+  .markdown-preview.markdown-preview .downloadLink {
+    display: none !important;
+  }
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="9-using-vue-in-markdown-by-vicente-badge-textdefault-theme-verticaltop">9. Using Vue in Markdown by Vicente <badge text="default theme" vertical="top"></badge></h1>
+
+<ul>
+<li><a href="#9-using-vue-in-markdown-by-vicente-badge-textdefault-theme-verticaltop">9. Using Vue in Markdown by Vicente <badge text="default theme" vertical="top"></badge></a>
+<ul>
+<li><a href="#badge-textnew-typeerror91-browser-api-access-restrictions"><badge text="new!" type="error">9.1. Browser API Access Restrictions</badge></a></li>
+<li><a href="#92-browser-api-access-restrictions">9.2. Browser API Access Restrictions</a>
+<ul>
+<li><a href="#921-third-level-heading">9.2.1 Third level heading</a></li>
+</ul>
+</li>
+<li><a href="#93-browser-api-access-restrictions">9.3. Browser API Access Restrictions</a></li>
+<li><a href="#94-browser-api-access-restrictions">9.4. Browser API Access Restrictions</a></li>
+<li><a href="#95-browser-api-access-restrictions">9.5. Browser API Access Restrictions</a></li>
+<li><a href="#96-browser-api-access-restrictions">9.6. Browser API Access Restrictions</a></li>
+<li><a href="#97-browser-api-access-restrictions">9.7. Browser API Access Restrictions</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="badge-textnew-typeerror91-browser-api-access-restrictions"><badge text="new!" type="error">9.1. Browser API Access Restrictions</badge></h2>
+
+<p>Because VuePress applications are server-rendered in Node.js when generAAating static builds, any Vue usage must conform to the <a href="https://ssr.vuejs.org/en/universal.html">universal code requirements</a>. In short, make sure to only access Browser / DOM APIs in <code>beforeMount</code> or <code>mounted</code> hooks.</p>
+<p><img src="../images/clases.png" alt="Diagrama de clases de ProcessBuilder y Process" title="Diagrama de clases de Process y ProcessBuilder"></p>
+<p>Pasaremos los datos necesarios para construir un objeto ISBN al constructor de Libro (en nuestro caso una cadena con el isbn) y ser&#xE1; este quien lo cree. En el fondo esto es lo que sucede con un tipo valor como DateTime por su &apos;naturaleza&apos;.<br>
+De esta manera, adem&#xE1;s, el objeto Isbn13 que estoy creando desaparecer&#xE1; junto con el libro.</p>
+<p>If you are using or demoing components that are not SSR friendly (for example containing custom directives), you can wrap them inside the built-in <code>&lt;ClientOnly&gt;</code> component: &#x2764;&#xFE0F;</p>
+<pre data-role="codeBlock" data-info="php" class="language-php"><span class="token comment"># Post Here Code Example</span>
+<span class="token keyword">function</span> <span class="token function">base</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">print</span> <span class="token string double-quoted-string">&quot;hola&quot;</span><span class="token punctuation">;</span>
+    <span class="token string double-quoted-string">&quot;123456789012345678901234 567890123456789 01234567890123456789012345 6789012345678 901234567890&quot;</span>
+<span class="token punctuation">}</span>
+</pre><pre data-role="codeBlock" data-info="java {no-line-numbers}" class="language-java"># <span class="token class-name">Post</span> <span class="token class-name">Here</span> <span class="token class-name">Code</span> <span class="token class-name">Example</span>
+function <span class="token function">base</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    print <span class="token string">&quot;hola&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+    i<span class="token operator">=</span>a<span class="token punctuation">;</span>
+    b<span class="token operator">=</span>a<span class="token operator">*</span>i<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> i<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&lt;&lt;&lt; @/src/index.md{2,6}</p>
+<div class="pagebreak"> </div>
+<pre data-role="codeBlock" data-info="graphviz" class="language-graphviz"><code>    digraph A {
+        S-&gt;X
+        X-&gt;Y
+    }
+</code></pre><p><img src="../images/viz_cross_relation.png" alt></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="../images/viz_cross_relation.png" alt></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Cross-Relation</em></td>
+</tr>
+</tbody>
+</table>
+<figure>
+    <img src="data:image/svg+xml;charset=utf-8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIyNjlweCIgaGVpZ2h0PSIxNTNweCIgdmlld0JveD0iMCAwIDI2OSAxNTMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI2OSAxNTMiIHhtbDpzcGFjZT0icHJlc2VydmUiPiAgPGltYWdlIGlkPSJpbWFnZTAiIHdpZHRoPSIyNjkiIGhlaWdodD0iMTUzIiB4PSIwIiB5PSIwIgogICAgaHJlZj0iZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFRMEFBQUNaQ0FBQUFBQVErVEExQUFBQUJHZEJUVUVBQUxHUEMveGhCUUFBQUNCalNGSk4KQUFCNkpnQUFnSVFBQVBvQUFBQ0E2QUFBZFRBQUFPcGdBQUE2bUFBQUYzQ2N1bEU4QUFBQUFtSkxSMFFBLzRlUHpMOEFBQUFKY0VoWgpjd0FBQUdBQUFBQmdBUEJyUXM4QUFBQUhkRWxOUlFmbEJBMFRBUTV0ZEYvakFBQVJwRWxFUVZSNDJ1MWRlVUJUVjlZL0w4bURDQ0pSCmRnZ29GQVJaUk1XNkFLSzJVSzJvMWJwVU85cldxcmkwVmR1eDJqclRhaDJ0dFg1T280NzFzMU8xclg0ZHhWMVU3T0NLZ0NJdUlJdVcKZ0ZUWkRJc1M5aVhKblQ5Q0lDSEpmZThtZnFVdjQrK3Z2SHZQT2UvbGwzUGZQZmZlYzI4b0JNL1JBVjUzUDhBZkNzL1owTVp6TnJRaAo2TzRIZVBab2xaVTBLT3FBMzR0eWRuWDZMMmFqSVQwckwvczNtVmFKdGJ0L1NGQllFTVhTQUdVcGZZb3k3Y3lWbXdxWDRDQmZzYXVuCnJaVXRvQm9rZTF4YWtwZWIxK3c0NnFYSlh2OUZiQ1QvMzBsWndOaW9LSGREUEdVbFg3NGlENXYrbGh1ekhjUjkxRzRMaENGZjNzZUoKdENUR09kTFRrcGdzY1orTk9vbUxjTzR0WnJtVytHaHFVTHpLb3RsUTd1d2pXdnVVcFhER1JDcmlqZ1d6Y1hNb3Zab3RGd2dobEJFaApXRlpyb1d5b050Tmo4Z2hWOWpuNUdXOVdYR2JqNlRpckxTcGlyZkpvNjI4dGtJM2lZTThNVS9TVTY2blZSa2prYml6NllJeDltdGdVClJkNW4zdk1ydnpjWW5uS1dEZGs0NS9NaUUzWG5PRXpwczhWUUJYOWRkMzh0MDlBUzNYclJ3V1J0UDkrUEhZWVpLT2VxYjN3aXZVMDQKUHRYQjdNS1ZrWVAwaXprNlRra2FkK0JOc3d5b29zc3pyUzJFRFdXby8xRXpUUlFIL08wanZVSnV6bjN0azI0MlhobEJxYkdvQUdmQwpjOFhHR2d0aFEvS09yL0hLVkFUaENDRnBvRjhFenNacXhZLzZoZDBkUTVtQ2EzQVRXdy9oQ0NHRXBQaHZ0ekJFcjRpVHZuRTRLSXlOCm1POVoySWFwZmlmN1h0Y2lUcktSOGpJN3VWZkRWMkJxaC9kTXRRUTJXakpIc3BRTUJzeWJsRC9zdWlXdzhialZsNlZrSUVneHRiN0YKbHNCR05aZ2VrMnZEc2FwckNSZlphQVpybHBKNTRJZXBGVFpaQWhzTzhJU2w1SGVBYTFQVmpwYkFoaVBJMkFrbWdnUlhMYk1JTmh6RQp0MWpKRlV3SVg0NnJ6d2kxQkRaZ1pDb0xvWUpGZnVGWU9WbWhYa2ZOU1RaaXpzc3h0UkVVcEZFVTVRZFNQR2xIZTRaM0xlTGtpTDdXCjdlK0x6TGN5WlBDZXJrV2M5STFlTXlVS3M0MWN2TE5RcjR5VHZnRy9CVWdXbTJrQ3ZlaVdvRmZJU2QrQWZrcy9mMnltaWYvTjNLUmYKeUUzZmdJWXdyM05tL1pDNXcxWitZVEZzd00ySTFldk5VSytPZEx4a1lMbUFxK3NwN3VLVmpzTk0xbTRZWDVOb2I2Q2NxK3NwTUUrMgpqRnBxb3E1OFNtR0tvWndvN3JJQm42RDNTemV3VGZiVFFlbUU2Z3Y5RFZkMTk0eXZHZmlKamlrM1FlMkNXK0JESTFYYzdHSFZtSHNsCmYyZ1NxVkx6cHpGanJ4dE5sK3p1SDlnc1BKMEd2bWxFR3FkZnNOdGp2SmJMYkZUOU9FVUl2WHQrV3NWYUkrMFZtRldLcWVjc0d3VmIKSTNoOEFRVEt2M2F5Vy9XQWpZWXk4UlVZZFJrcndrMDJjdGFHQU0wREFFRVdRdlZiUEhqamp6UXlxQlI5NlUyOWRJRkJpSHRzTkNjdApjd1lyOVV1UHZ3a2hoRkRiOGZGOG0ybjdTNHlwS0RJMmhvSERoL2NaYlhNdk12OWhIbC9aL3BFT3ZjNXYvMWh4NHVqbFZwK293VUVoCnpqclN5b0xzblBUVU90ZlhwbzJobVcxemp3MllkYXl0L1pQMVhlMGdxdkhhMVpTc0tyRDNjSGNYaW5nMkRTMk4xZVdsajF2NFBpK08KaWhyQUxrempJQnYxb1kvVWN6MDh5UWQ2bGJMc0IyVmw1YzF5Vll0MWZVVzB1N3ZIZ0FFOTJKdm1JQnR3YTRRQ0FJQWVlUm43aXgrYQowMFE2N3VCaUxKcHVUUUVBMEQvaDNkOUxVVVpxbVh0czFNNWE5dWRZR29ENlIxKzhZRjk0Ukd5OHV6dE1VdHp3Y2ZrM3FuTGwwK09aCkpKWFdCMGlOYzh3MzBMWkluOHdZY0RpTWJQWXl5ZkxFRDBuTmMydCtvL0x0cEw5OHpnT0F5UFYrekx2VXZJaGJDcWZZdURTSFRtNWYKTFZ6RElvRG9TOHdHaDFxS2NsM01pRHVhcFZNMjBWUmY3clVVWlZGMlFXbFpXWE1OYXJEbDJmY1F1NHI5Z3ZzWitvMUszc3pZdXB6SQp0QmUzMktpNWV1VnFkaE5QTEhZTHN4R0JxQWFlTnBha0h5bEZ0cUdqUmtmYTZjb216SE5LSDBobTNxdWhtalFscXR1NnlrZmJ4dkNwCjRQZjNaZFIzcWFoTi8zNXhJTkF4dThvNnkxclg4dWJXRTVsSENPWERiVUtOYm1LajlYQTBaZi9tWWVPelZyS2ZaL1RrVFRpcFVGOFYKamJBampoMFFhcWFPYzRHTitxL2QrSk1TV2hpa21vNk80M2x1YTBJSUhSRU55VGZsUHE2U1B6NGJ6Vjg3MlgzeWlKVm80WWMyN2p2cQpsa0ZjczBsM0d2YlJINTZOcFA2MmE5alA2ejcrU09qYTY2U0p0NW94blZEaDk0NDM2dCtKQ2JxM2tmMnIzbVZyVG1qZHVTYlc4am9nCkR6aCtYOGU0MWQvNUZMRlNmTytRWEpQdXR0MzVEKzBiSnlQRmR5WVJhODNJRWcxUE5PVjJYcFdrVHZWN2VzWXUvbnNLa3hSYjUxcVoKME1PaU8vQXJtUUp6TEZyN2ExbUpyQUxWS3NHZVorZmg0dWx0MGdabEFJQzlTemVzTVUyVC90SHRiZXZweEdwOTRXRi9JZ1VzR3czWAprbS9tUFFSd2RIV2hSQlNVdHRVWHl4UWdDZ3FOR09QTzlnYWRPTFhvY3hQSkFLQTJOODl4R0V1cTFic1g0V3ZVK0N6eGcyTW4wOXQ4Cmh3Y0hCWXExVXY2UkxEODNKek9qelRmMjlRZytteHQwMmhzOGE3ZXBaQUNBYXZhbExCWUg3K2dpK0hYQ2RDakREYWhteHlCd21QZXoKc1JYY2h2TnJnc0I1eFQyQ0p0azJNcmpKcEhlR0J2WCtvNGxmT2hQZUpwTTN5RWIrQXR1ZUM4NjM0VFh2Yi9DaHhpU3dQdjlDMG9PRQpPME80S2RoSHFySmtqTmxzU044UytPK1VzOUJWbnB0TURVMWdkNStuRHA5aWFqc1N2dU93MzgyamdaQ05UZDVtc3RHNDF0cG5keHRiCjlld1oxRmhXa2RGNnh4cjhjNFFqaEpDa2ZTZXJZVHp1dVkyUWpaOXBzc2JWbFkzei9VUTdpQ3lrRGJaZXg2eWc4bG5GOEJ4cUd1SkEKaWhHS0N5WmtJd1ZLaU9SMTJXajdsRGVETkxGTUlla3hpbkZFZWhFWTNocnRiRWpnTEVib09zTWVhVDBVUXlxUnZFNWsvalI2KzNmeApyb1M5R0gvNWpTZURtYmJQWEFnSVlHVU12eTF2dVBzRnNtZHpvOGtDRG0wMmlrY1ZYWjlQeUFVQVFQQ05xSmdUZUpIVVNGYVd0bjBYCmg5M3FHcEZHOW1SOEQ4SkZoRTQzS2ZVT0lXdGxXcTFsS2Y4b1ZzRHBId3dXMnArR1liSnEwd3VFRHpaNnFZa3RSUjRyT085aGdtY0EKQVBCM2ZqQWJsN21wZXVMQ1pDSWNJWVNrOFJUMjBBeW5LaVl6WGRDM0lPdlU5cFg3aVgxRE5jR1QzZXljWVNobjl0Wk4wTldaNGE0QgpwdU1iT3c2SndFWWN4eW5XZlQvSzM3Umt2SzhRQUdqWXcxYW5ndzJKZ0N3TnRTdWFCa2JxZExSYkhDZHRUdFlrNnJWU1RKTjVta0FqCkhEdkZzRi9JL29FcWVuVDRQZXZUOHpRM0x4UnVNSXNNaE80S3QycGZIZ0pLQVB4Qnl3OFZJNFJRcjczUGhJMXZ4QVFQOUdkTjJsdFAKSlNrYk0vMFpmRkNLRFJNUlF1aXZvbXF0cTJ2cUo3SGlnY09FcjY0R2Y4S09EWWE3TEkwZ1lPTngrOUNiaW1HdDBzN0diVVpYbGdBMgpURVFJMVRwckQwVkt0ZDZ4TlBCN0hXVERoalFjRzMyaGdSOFRzSUdXcVozRDZndFNOaGFITUFyR01YVi9hTDF6YThmbnFsdGFzeDk4CjhMYkNEbE02UjIxWXhzdjVKMGpZS0d2UHNmMkZrSTFHKzc4enlKME5aMjRxai9qSFdncXZ4bisxYkVhWVBZQlE4dzBGTVB4VWpjMXUKa3U5aEJKdEZUUG5UdWxoTUF3QlFUd2paU0lKU0JybTRzeWdPNzhVSW9TaG5BT2dSRVBQdXVyMUo5MGVvdWFCaHhBV0UwTnd3OHBOQQp1MExoOXdHWndpTUJBSUFmZXdVMUcrc1lZenhBNkN3K0ZrQUlyUkdmdUZXaHVaakxCd0NhZWpVZElZVFFIVjY4Mld6ODAwcEtxREdmCkJoRE1KMlhqdGRrTVlwSTRoQkRqY3NOSlNtczY1aS9XUUZQVHN6U1hiNzFBNXVYNnFIVW5kQTJFQ3ZrQS9PL1p5NnNqRkJsVFNCNC8KQlFBazJPT3pBTUFkVlhSZWVMYnczc2c3M0pHQXNySDZZOEtvdWl1V0tEOG5WZkg1RXczS0VRUUtDQ0dFK20vRWN5WlY5MzlNNzlFaQo3Zm1IcElXRk9wWHgxREd6WEdNdmRZNWNLWjhIdHF4akwwMUxHYkFlTHlYUmNJZHZ1UG1RaWFsZFltTk83UDl2cXpXbXFNMkdsd2lrCjFhdExEdFY0QjFvaDlRVUEyTGJpRERZUHJRb2NNYlU3eWlaZURBVVRjZTExKytMTVFZUkt6YVhsUXcvU213RUVka0ozZDNjUnk1WXkKY3lxV3NyT2F6b1RoUFhwUWdNMDZhWHpaL3FLSm5wRmdNM2xiSUVUK1N6c2ZDRHVCWG41b2RXdy9Db0J2NWVEajc5T3Z0eEFBSEVZdgoyWjJMN2VqVlgyK0xDL1paNGpTQkJrUElzZXhGL0hkcW1XMzlUMU80VUgwamlGTWdkSFVHN2JLNmM5NWd4Q0ZqdDBsYzdBK0MwRGUvClBKNVJxcmpiUG5pcXpqbTNZMUdrSFRoTjIyYzhsMGJOUmhwZzlueEpRYlBPQVFEWUYrbWdaVXhmNjYrOFdUV0lGRldUQlp2Vm44cSsKRXZNbkpxbC8zbFNndGh1NnhhVTVJbXJvbW5OMUJrMHBNcmJHQ2dVdi8yQ2t0MWV6b2ZEOGpQZ1o5WkVObHhsbHpydDVIaUd6cWpyZwo1cFhTY2RVU0h3MytranFFMEJzMFVCOTA5ZnQ2U1FDTWxEekVHcXc3Tk4ycTl3cURtMGJiWHdSclBObFBLaG5GY2w4VzBYZkZPOVQ0CnV3UkdNOGJ3bHVnT05HN0gyZmFLeTZtZ0FZQTNwMVc3cG42ems5MlNMQlpHWlYvNTBQTU44TkhPUnBIMUxyUEpLTEZobDVCNGRRaHYKT3B0SFJnaWhHeE9wY1AwMWxPb3RQdFFvR2dDQVA3YnpIeTlVQjF6dFdPZlh0ZjNnUzYvU3k4ZlZkQklmdXRTeXRHTVU3M3F6eldOTQpHZ3BodTVrRDllYjRhQmh4eXFDL0tVLzJVWGVKOUdETndFZzZscmVFZmE0aFFtM2Y5dmJzbW9PbVlhUGE4VjB6eVVpazJJL0xWTDlNCkZUak1QNE5qci9IRVd5S3JOeTRacXo2czJZUkFleFVnaEJEYWJ6ZjRCdUVUVjd4TnZhK2JSZEVSUUp5aURoSWEwMFc1OHh3aStkTE4Kd3ltN0NadFNEU1YxTkNULzdSVmJYdVEzTXVQcWtSMlRTYlRqSFlSYUYxQWZNZVVtRzBDOC9hQmk3ZXZPM0o3bGU4NlRqRys2b082bAoycHQyaERvbENWZVN5L2srQS8zZHhTNk9QQkdsa2l1clpNVmw5N09MVko1Um95Zmhsa0R6Z2p0emt2ZzlUb2ZOdlBxdmlhWThkdEZrCmVXSlE1MlVuRzRwcHFjbUJwcExSTWlrNzVRVlRGQXN5YzNKL2ZWelpXZURpNmg4Y0ZNYXduUkhlK3hZQWFCNm9sQ29Bb0wzbFoxaWQKWXEyUG10ZXlMM2R1OU5ESysyb2FuNWRnb25mSXA5NjVPTmcwVlFBQWFKRTlVZFlxQlhhQ1BpNVdyQlFxbjhocjVFL2xOWEw1aytvYQplYVZ5M1ZwVGI5MGNleS9WdStOS3U3bE90amxLMlBEVUtBb1JrNFFRenhxTGV0MWlQL1dwQi9tUWdJNjRWV2NZcG5pdjYwdVdGWTZJClFzMVp0RFFYUjRpM29laWkxR21lUVRZUU9tUS9rSFFTb25JZXRjUzhiRC96VU5GbnNaa1dFanJvN0RwRWZ4QkR6WmNSV0dyYjFVZDgKbkVEKzJlTTlEK0l0WGwweHg2L1ZNQnNJeFl0dFY3TGxvMjJmTDcycWpxWHcvdytrTkg0Rlhob0hBQkF1d2MzYS9TYmNhWXdOMVBpTgptODBDTmdsV3NrM2U5SUtpYnVVQ29aWGUyQnc4OVl5TU5BNC9pYmwwZ0ZFMkVHcmNHUXhEL3dkL1VGTHR3V2xXZlQ3c2JpNVFteXQyCmxiVWp4MUNDWmVNV3BCbG5BeUdVTXE4UERGbDkydkRVVE51TnJiRkNRZlNQM2ZueWJNY1ZLTVRVU2p2WGp2RVQzRUVyRVVMR2QyUkUKUkNndUgwLzRtaGNRSERKQTdPR2lFYXN1TDgzUHlibGI3enhxMTZSbjgyY0VaaUxGd3dkVHV3VmlPK0lxckprb2RYb2QvcVNheXBTTQozSndpQkR6N0hzSWVUU3A1VXpPQVEwaFFhT1NBN21aQmc2bFdoekMxRVdrc0QrSTVzS0NCRDB3N3g1Mm1UZ1ZvTGk4cmU5clNxQkFJCjdJVHU3aDcyN096L1RpZ2JqYXROQzJkcHhxdWwycG1SRFFBQUVIcDdNd3QxRjRoM3lodUdJMVE1QTZkT25EQUlGZllMaExQTnRoV0EKQWl5QURRZnNuNGRnLzJsSUc1WGdaQWxzT0dOUHNmb1l6clIvU3FTdytRWGxmQWRMWUNNc0hWZnJLMW5SN2h3YkFMdUNmRDNFeWhMWQpHSmxmZ2F0ZUx2RkxCSURFaURRcDFreUsrZ1FjcnJNUjFmTVF0bjY1OUFSRlVSdG1JdXplaGdjMzFGRWFGODhKMU1HQzI3Zk5OL0xaCnZvZDhBTzc3Qml6S1BHdTJqYWZmTGxRdlNIRGVOMkI2M2wxemoySmE5VU5CTHdDd0FOK0FUWVZiemJSd2UvdGFOUmtXNEJ1dzlaT3IKWml5TEFUUU1kYm5BdHhnMjBJUzhWSlBQZlFCUXZuNnRZNE0rOTFzS1VBZjdqR1A3NTM3NlFJdVNqbmVjVm1BQmJJRDk2WWF4eE1mTQp0a094OEtmRG5YKzRiQWxzZ0VleVltU3VTWnIxVXc2ZWlPMjh0QWcyd0N1bDMvQjlKdWhsRHIxNWFZTFd0V1d3QWIzUHY3OWdkZ1doCmttTHJTSTg3TCtvVWRmZWs5elBETDE2aW5VVG5JU1NIQ0RkMnlVRzNIRFpRdzFwcm45MnMrY2lhUWIyc2Q5S0JCYkdCVVA1Y2ZnQzcKYzFST3Z3b2pFdlhMTFlxTjlqTjJMakE0U080WGZhbm9SRU0xRmhDTDZrSytmMCttNCtTWUtDTkhjTlZmdTNUaW50dWY0Z3dmYkdGeApiQUJBNGJHVDZRcmZZU0hCZ1I1YVozT3BaUGs1T2JkdksvckhUaHRwckNlMVJEWUFvT0ZhOHEzY2h3Qk9yaTZVQ0tDaHRhNUVwb0RlCklRTWpvM0NIaGxrb0d3QUFVUHRyV2JHc0V0VWc2RW5iZWJpS2ZSZ1AxTEJrTnNoaEliSG9NOEp6TnJUeG5BMXQvQWVJZnZrVmkrQWsKM0FBQUFDVjBSVmgwWkdGMFpUcGpjbVZoZEdVQU1qQXlNUzB3TkMweE0xUXhPVG93TVRveE5Dc3dNRG93TUpFUDFFd0FBQUFsZEVWWQpkR1JoZEdVNmJXOWthV1o1QURJd01qRXRNRFF0TVROVU1UazZNREU2TVRRck1EQTZNRERnVW16d0FBQUFBRWxGVGtTdVFtQ0MiIC8+Cjwvc3ZnPgo=">
+    <figcaption>Cross-Relation</figcaption>
+</figure>
+<h2 class="mume-header" id="92-browser-api-access-restrictions">9.2. Browser API Access Restrictions</h2>
+
+<p>Because VuePress applications are server rendered in Node.js when generating static builds, any Vue usage must conform to the <a href="https://ssr.vuejs.org/en/universal.html">universal code requirements</a>. In short, make sure to only access Browser / DOM APIs in <code>beforeMount</code> or <code>mounted</code> hooks.</p>
+<h3 class="mume-header" id="921-third-level-heading">9.2.1 Third level heading</h3>
+
+<p>If you are using or demoing components that are not SSR friendly (for example containing custom directives), you can wrap them inside the built-in <code>&lt;ClientOnly&gt;</code> component:</p>
+<p>::: tip PRUEBA<br>
+This is a tip<br>
+:::</p>
+<h2 class="mume-header" id="93-browser-api-access-restrictions">9.3. Browser API Access Restrictions</h2>
+
+<p>Because VuePress applications are server-rendered in Node.js when generating static builds, any Vue usage must conform to the <a href="https://ssr.vuejs.org/en/universal.html">universal code requirements</a>. In short, make sure to only access Browser / DOM APIs in <code>beforeMount</code> or <code>mounted</code> hooks.</p>
+<p>If you are using or demoing components that are not SSR friendly (for example containing custom directives), you can wrap them inside the built-in <code>&lt;ClientOnly&gt;</code> component:</p>
+<h2 class="mume-header" id="94-browser-api-access-restrictions">9.4. Browser API Access Restrictions</h2>
+
+<p>Because VuePress applications are server-rendered in Node.js when generating static builds, any Vue usage must conform to the <a href="https://ssr.vuejs.org/en/universal.html">universal code requirements</a>. In short, make sure to only access Browser / DOM APIs in <code>beforeMount</code> or <code>mounted</code> hooks.</p>
+<p>If you are using or demoing components that are not SSR- friendly (for example containing custom directives), you can wrap them inside the built-in <code>&lt;ClientOnly&gt;</code> component:</p>
+<h2 class="mume-header" id="95-browser-api-access-restrictions">9.5. Browser API Access Restrictions</h2>
+
+<p>Because VuePress applications are server-rendered in Node.js when generating static builds, any Vue usage must conform to the <a href="https://ssr.vuejs.org/en/universal.html">universal code requirements</a>. In short, make sure to only access Browser / DOM APIs in <code>beforeMount</code> or <code>mounted</code> hooks.</p>
+<p>If you are using or demoing components that are not SSR friendly (for example containing custom directives), you can wrap them inside the built-in <code>&lt;ClientOnly&gt;</code> component:</p>
+<h2 class="mume-header" id="96-browser-api-access-restrictions">9.6. Browser API Access Restrictions</h2>
+
+<p>Because VuePress applications are server-rendered in Node.js when generating static builds, any Vue usage must conform to the <a href="https://ssr.vuejs.org/en/universal.html">universal code requirements</a>. In short, make sure to only access Browser / DOM APIs in <code>beforeMount</code> or <code>mounted</code> hooks.</p>
+<p>If you are using or demoing components that are not SSR friendly (for example containing custom directives), you can wrap them inside the built-in <code>&lt;ClientOnly&gt;</code> component:</p>
+<h2 class="mume-header" id="97-browser-api-access-restrictions">9.7. Browser API Access Restrictions</h2>
+
+<p>Because VuePress applications are server-rendered in Node.js when generating static builds, any Vue usage must conform to the <a href="https://ssr.vuejs.org/en/universal.html">universal code requirements</a>. In short, make sure to only access Browser / DOM APIs in <code>beforeMount</code> or <code>mounted</code> hooks</p>
+<p>If you are using or demoing components that are not SSR friendly (for example containing custom directives), you can wrap them inside the built-in <code>&lt;ClientOnly&gt;</code> component:</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

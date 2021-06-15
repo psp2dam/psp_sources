@@ -1,10 +1,11 @@
 ---
+title: 1. Intro to process programming
 # markdown:
 #    image_dir: /images
 #   absolute_image_path: false
-export_on_save:
-    html: true
-    puppeteer: true
+# export_on_save:
+#    html: true
+#    puppeteer: true
 ---
 
 # 9. Using Vue in Markdown by Vicente <Badge text="default theme" vertical="top"/>
@@ -22,7 +23,7 @@ De esta manera, además, el objeto Isbn13 que estoy creando desaparecerá junto 
 
 If you are using or demoing components that are not SSR friendly (for example containing custom directives), you can wrap them inside the built-in `<ClientOnly>` component: ❤️
 
-``` php 
+```php 
 # Post Here Code Example
 function base(a, b)
 {
@@ -31,7 +32,7 @@ function base(a, b)
 }
 ```
 
-``` java{4,6-7}
+```java {no-line-numbers}
 # Post Here Code Example
 function base(a, b)
 {
@@ -44,11 +45,11 @@ function base(a, b)
 }
 ```
 
-@import "../index.md" {as="yaml" code_block="true" class="line-numbers", highlight="5,8-10,12"}
+<<< @/src/index.md{2,6}
 
 <!-- pagebreak -->
 
-```viz
+```graphviz
     digraph A {
         S->X
         X->Y

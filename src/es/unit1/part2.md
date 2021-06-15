@@ -1,4 +1,4 @@
-# 9. Using Vue in Markdown by Vicente <Badge text="default theme" vertical="middle"/>
+# 9. Using Vue in Markdown by Vicente v2 <Badge text="default theme" vertical="middle"/>
 [[toc]]
 
 ## <Badge text="new!" type="error"/>9.1. Browser API Access Restrictions 

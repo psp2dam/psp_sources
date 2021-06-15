@@ -1,5 +1,6 @@
 ---
 home: true
+title: PSP - Documentation Site
 heroImage: /LogoPSP_en.png
 tagline: Class notes
 actionText: Access lessons →

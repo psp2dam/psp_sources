@@ -1,9 +1,10 @@
 ---
 home: true
+title: PSP - Página  de documentación
 heroImage: /LogoPSP_es.png
 tagline: Apuntes de clase
 actionText: Acceder al curso →
-actionLink: /es/unit1
+actionLink: /es/unit1/
 features:
 - title: 
   details: 

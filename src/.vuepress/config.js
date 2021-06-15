@@ -14,7 +14,7 @@ module.exports = {
    * Directory to be deployed to http://mydeploymenthost/base/
    */  
   base: '/psp_sources/', // Producción
-  //base: '/', // Desarrollo
+  // base: '/', // Desarrollo
 
   // Host name for PDF export configuration
   host: 'localhost',
@@ -190,7 +190,8 @@ module.exports = {
         args: ['--no-sandbox', '--disable-setuid-sandbox']
       },
       sorter: 'pathOrdered',
-      theme: 'default',  
+      outputFileName: 'book.pdf',
+      theme: 'default-prefers-color-scheme',  
       pageOptions: {
         format: 'A4',
         displayHeaderFooter: true,

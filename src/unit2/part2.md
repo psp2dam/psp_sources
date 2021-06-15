@@ -1,3 +1,7 @@
+---
+title: Unit 2 - Document 2
+---
+
 # 9. Using Vue in Markdown by Vicente <Badge text="default theme" vertical="middle"/>
 [[toc]]
 
