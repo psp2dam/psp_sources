@@ -1,16 +1,18 @@
 <template>
   <div v-if="$lang == 'es-ES'" true class="downloadLink" align="right">
-    <a :href="$withBase('/pdf/'+$page.title+',pdf')" download><Badge text="descarga archivo PDF" type="error" vertical="top" />
-      <img :src="$withBase('/images/download-pdf.png')" alt="documento PDF" height="50" />      
+    <a :href="$withBase('/pdf/'+$page.title+'.pdf')" download>
+      <img :src="$withBase('/images/download-pdf.png')" title="descarga como PDF" alt="descarga PDF" height="50" />      
     </a>
-    <a :href="$withBase('/pdf/'+$page.title+'.pdf')" target="_blank"><Badge text="abre archivo PDF" type="error" vertical="top" />
+    <a :href="$withBase('/pdf/'+$page.title+'.pdf')" target="_blank">
+      <img :src="$withBase('/images/open-pdf.png')" title="abre como PDF" alt="abre PDF" height="50" />      
     </a>
   </div>
   <div v-else true class="downloadLink" align="right">
-    <a :href="$withBase('/pdf/'+$page.title+'pdf')" download><Badge text="download PDF file" type="error" vertical="top" />
-      <img :src="$withBase('/images/download-pdf.png')" alt="PDF document" height="50" />      
+    <a :href="$withBase('/pdf/'+$page.title+'.pdf')" download>
+      <img :src="$withBase('/images/download-pdf.png')" title="download as PDF" alt="download PDF" height="50" />      
     </a>
-    <a :href="$withBase('/pdf/'+$page.title+'.pdf')" target="_blank"><Badge text="open PDF file" type="error" vertical="top" />
+    <a :href="$withBase('/pdf/'+$page.title+'.pdf')" target="_blank">
+      <img :src="$withBase('/images/open-pdf.png')" title="open as PDF"alt="open PDF" height="50" />      
     </a>
 
   </div>
